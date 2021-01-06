@@ -36,6 +36,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -44,7 +45,7 @@
             // 
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(12, 83);
+            this.textBox1.Location = new System.Drawing.Point(12, 102);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(341, 68);
@@ -54,9 +55,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(220, 34);
+            this.button1.Location = new System.Drawing.Point(162, 36);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 43);
+            this.button1.Size = new System.Drawing.Size(191, 60);
             this.button1.TabIndex = 1;
             this.button1.Text = "generate";
             this.button1.UseVisualStyleBackColor = true;
@@ -65,9 +66,9 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.numericUpDown1.Location = new System.Drawing.Point(104, 34);
+            this.numericUpDown1.Location = new System.Drawing.Point(59, 36);
             this.numericUpDown1.Maximum = new decimal(new int[] {
-            64,
+            62,
             0,
             0,
             0});
@@ -91,14 +92,14 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.label1.Location = new System.Drawing.Point(13, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 13);
+            this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Длинна пароля";
+            this.label1.Text = "Length";
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.button2.Location = new System.Drawing.Point(127, 157);
+            this.button2.Location = new System.Drawing.Point(123, 176);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(119, 22);
             this.button2.TabIndex = 4;
@@ -111,9 +112,9 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(16, 60);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(181, 17);
+            this.checkBox1.Size = new System.Drawing.Size(140, 17);
             this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "Без повторяюшихся символов";
+            this.checkBox1.Text = "No repeating characters";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
@@ -133,11 +134,22 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(16, 79);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(129, 17);
+            this.checkBox2.TabIndex = 7;
+            this.checkBox2.Text = "No special characters";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(369, 185);
+            this.ClientSize = new System.Drawing.Size(369, 210);
+            this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
@@ -151,6 +163,7 @@
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "PasswordGenerator";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -169,6 +182,7 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }
 
