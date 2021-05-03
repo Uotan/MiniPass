@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace PasswordGenerator
 {
@@ -14,6 +15,8 @@ namespace PasswordGenerator
     {
         Random rand = new Random();
         int Q1;
+
+        string _truePassword;
         about F = new about();
         public Form1()
         {
@@ -26,7 +29,7 @@ namespace PasswordGenerator
             int L = Convert.ToInt16(numericUpDown1.Value.ToString());
             char[] lenght = new char[L];
             
-            if (checkBox2.Checked==true)
+            if (checkBox2.Checked==true && checkBox3.Checked == false)
             {
                 for (int i = 0; i < lenght.Length; i++)
                 {
@@ -80,7 +83,7 @@ namespace PasswordGenerator
             }
 
 
-            if (checkBox2.Checked == false)
+            if (checkBox2.Checked == false&&checkBox3.Checked==false)
             {
                 for (int i = 0; i < lenght.Length; i++)
                 {
@@ -108,9 +111,42 @@ namespace PasswordGenerator
                     textBox1.Text += lenght[i].ToString();
                 }
             }
+            if (checkBox1.Checked==true&&checkBox3.Checked==true&&checkBox2.Checked==false)
+            {
+                ohshitherewegoagain:
+                _truePassword = null;
+                for (int i = 0; i < lenght.Length; i++)
+                {
+                        PP:
+                        lenght[i] = (char)rand.Next(33, 127);
+                        if (i != 0)
+                        {
+                            for (int k = 0; k < i; k++)
+                            {
+                                if (lenght[k] == lenght[i])
+                                {
+                                    goto PP;
+                                }
+                            }
+                        }
+                        _truePassword += lenght[i].ToString();
+                }
+                string regexpass = @"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$";
+                if (Regex.IsMatch(_truePassword, regexpass))
+                {
+                    textBox1.Text = _truePassword;
+                }
+                else
+                {
+                    goto ohshitherewegoagain;
+                }
+            }
+            if (checkBox1.Checked == true && checkBox3.Checked == true && checkBox2.Checked == true)
+            {
+                textBox1.Text = "error";
+            }
                 
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Clipboard.SetData(DataFormats.Text, (Object)textBox1.Text);
@@ -119,11 +155,6 @@ namespace PasswordGenerator
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             F.ShowDialog();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //button1_Click(null, null);
         }
     }
 }

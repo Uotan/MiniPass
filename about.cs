@@ -15,7 +15,7 @@ namespace PasswordGenerator
         public about()
         {
             InitializeComponent();
-            pictureBox1.Image = Image.FromFile("UH.gif");
+            //pictureBox1.Image = Image.FromFile("/Res/MyLogo.gif");
         }
     }
 }
